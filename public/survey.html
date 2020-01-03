@@ -169,7 +169,7 @@
         <hr>
       </div>
       <div class="modal-body">
-          <img id: "matchImg" src="" atl="Placeholder of Image" </div> <footer
+          <img id: "match-img" src="" atl="Placeholder of Image" </div> <footer
               class="footer">
           <div class="container">
               <p>
@@ -218,7 +218,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-$(".chosen-select").chosen();
+
+$(".form-contol").chosen();
+
 $("#submit").on("click", function (event) {
 event.preventDefault();
 function validateForm() {
@@ -226,7 +228,7 @@ var isValid = true;
 $(".form-control").each(function () {
 if ($(this).val() === "") isValid = false;
 });
-$("chosen-select").each(function () {
+$("form-contol").each(function () {
 if ($(this).val() === "")
 isValid = false;
 });
@@ -250,6 +252,7 @@ $("#q10").val()
 ]
 }
 var currentURL = window.location.origin;
+
 $.post("/api/friends", userData, function (data) {
 $("#match-name").text(data.name);
 $("#match-img").attr("src", data.photo);
